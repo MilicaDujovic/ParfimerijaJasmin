@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Najbitniji testovi">
+    <test name="Skup testova 1">
+        <classes>
+            <class name="PrivacyPolicyTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="Skup testova 2">
+        <classes>
+            <class name="ShoppingCartTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
