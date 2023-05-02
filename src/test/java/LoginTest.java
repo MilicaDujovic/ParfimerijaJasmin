@@ -57,7 +57,7 @@ public class LoginTest extends BaseTest {
             System.out.println("4. Click check box button");
             loginPage.clickCheckBox();
             System.out.println("5. Enter valid email");
-            loginPage.clickEmailAddress(Strings.YOUR_EMAIL + (int) (Math.random() * 1000));
+            loginPage.clickEmailAddress(Strings.VALID_EMAIL_PART_1 + (int) (Math.random() * 1000) + Strings.VALID_EMAIL_PART_2);
             System.out.println("6. Enter valid password");
             loginPage.clickPassword(Strings.YOUR_PASSWORD);
             System.out.println("7. Enter password confirmation");
@@ -66,11 +66,13 @@ public class LoginTest extends BaseTest {
             loginPage.clickShowPassword();
             System.out.println("9. Click Login button");
             loginPage.clickRegisterButton();
+            sleep(5000);
+
 
             System.out.println("10. Verify user registration");
             String actualUrl = driver.getCurrentUrl();
-            assert actualUrl.equals(Strings.CREATE_ACCOUNT_URL) : "User is on a wrong page. Expected: " +
-                    "" + Strings.CREATE_ACCOUNT_URL + " Actual " + actualUrl;
+            assert actualUrl.equals(Strings.ACCOUNT_URL) : "User is on a wrong page. Expected: " +
+                    "" + Strings.ACCOUNT_URL + " Actual " + actualUrl;
 
         } finally {
             driver.quit();
@@ -100,6 +102,7 @@ public class LoginTest extends BaseTest {
             loginPage.clickPasswordLogin(Strings.YOUR_PASSWORD);
             System.out.println("4. Click LOGIN button");
             loginPage.clickLOGIN();
+            sleep(5000);
 
             System.out.println("5.Verify that user is logged in");
             String actualUrl = driver.getCurrentUrl();

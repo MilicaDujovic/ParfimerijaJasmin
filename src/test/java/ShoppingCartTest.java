@@ -52,7 +52,7 @@ public class ShoppingCartTest extends BaseTest {
             String expectedMessage = "Dodali ste " + shoppingCartPage.getProductName();
             String actualMessage = shoppingCartPage.getShoppingCartMessage().substring(0, shoppingCartPage.getShoppingCartMessage().length() - 9);
             assert expectedMessage.startsWith(actualMessage) : "Error. Wrong message. " +
-                    "Expected: " + expectedMessage + "  starts with prefix " + actualMessage;
+                    "Expected: " + expectedMessage + "  starts with " + actualMessage;
 
         } finally {
            driver.quit();

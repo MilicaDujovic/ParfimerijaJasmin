@@ -45,10 +45,8 @@ public class SearchResultsTest extends BaseTest {
      */
     @Test
     public void searchInvalidBrandTest() {
-
         ChromeDriver driver = openChromeDriver();
 
-        String expectedSearchErrorMSG = Strings.SEARCH_ERROR_MESSAGE;
         try {
             System.out.println("1. Navigate to Home page");
             HomePage homePage = new HomePage(driver);
@@ -63,6 +61,7 @@ public class SearchResultsTest extends BaseTest {
             System.out.println("4. Verify that search results are not present");
             assert !searchResultPage.isSearchResultsPresent() : "There should be no results, but there ARE";
             String actualErrorMessage = searchResultPage.getSearchErrorMessage();
+            String expectedSearchErrorMSG = Strings.SEARCH_ERROR_MESSAGE;
             assert actualErrorMessage.equals(expectedSearchErrorMSG) : "Error. Wrong message" +
                     "Expected: " + expectedSearchErrorMSG + " .Actual " + actualErrorMessage;
 

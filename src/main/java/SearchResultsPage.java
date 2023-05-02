@@ -27,6 +27,5 @@ public class SearchResultsPage extends BasePage {
         System.out.println("getSearchErrorMessage");
         return searchErrorMessage.getText();
     }
-
-
+    
 }

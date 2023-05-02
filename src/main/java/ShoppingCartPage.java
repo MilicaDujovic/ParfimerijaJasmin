@@ -38,9 +38,7 @@ public class ShoppingCartPage extends BasePage {
         List<WebElement> selectProductItemList = selectProduceItem.findElements(By.xpath("//div[@class='swatch-option text']"));
         WebElement firstSelect = selectProductItemList.get(0);
         waitForElement(firstSelect);
-
         productName = firstSelect.getText();
-
         firstSelect.click();
         buttonAddToCart.click();
     }

@@ -4,7 +4,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    @FindBy(xpath = "//a[@id='iddDUmFVJN']")
+    @FindBy(xpath = "//a[@id='idkcKKfCSP']")
     WebElement register;
 
     @FindBy(xpath = "//input[@id='firstname']")
@@ -52,9 +52,7 @@ public class LoginPage extends BasePage {
 
     public void clickRegisterHomePage() {
         hoverOverElement(hoverOverLogin);
-  //      waitForElement(register);
         hoverOverElement(register);
-//        waitForElement(register);
         register.click();
     }
 
@@ -105,13 +103,12 @@ public class LoginPage extends BasePage {
     }
 
     public void clickShowPassword() {
-
         showPassword.click();
     }
 
     public void clickRegisterButton() {
-
         buttonRegister.click();
+
     }
 
     public void clickLOGIN() {

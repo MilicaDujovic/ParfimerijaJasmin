@@ -34,7 +34,6 @@ public class HomePage extends BasePage {
         hoverOverElement(senkeMenuOption);
         senkeMenuOption.click();
 
-
     }
 
     public void clickOnMainMenuLink(String linkText) {

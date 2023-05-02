@@ -12,6 +12,8 @@ public class BaseTest {
         options.addArguments(new String[]{"--start-maximized"});
         options.addArguments(new String[]{"--ignore-certificate-errors"});
         options.addArguments(new String[]{"--disable-popup-blocking"});
+        options.addArguments(new String[]{"--incognito"});
+
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         ChromeDriver driver = new ChromeDriver(options);
         driver.get(Strings.HOME_PAGE_URL);
@@ -19,7 +21,7 @@ public class BaseTest {
         return driver;
     }
 
-    public boolean isCurrentURLequalTo(ChromeDriver driver, String expectedUrl) {
+    public boolean isCurrentURLequalToExpectedUrl(ChromeDriver driver, String expectedUrl) {
         System.out.println("isCurrentURLequalTo ( " + expectedUrl + " )");
         String currentUrl = driver.getCurrentUrl();
         System.out.println("User is on " + currentUrl);
@@ -27,11 +29,11 @@ public class BaseTest {
         return isEqual;
     }
 
-    public void sleep(int seconds) {
+    public void sleep(int miliSeconds) {
         try {
-            Thread.sleep(seconds);
+            Thread.sleep(miliSeconds);
         } catch (Exception exc) {
-            System.out.println(exc.getMessage());
+            logger.error(exc.getMessage());
         }
     }
 }

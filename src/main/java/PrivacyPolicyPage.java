@@ -5,17 +5,16 @@ import org.openqa.selenium.support.FindBy;
 
 public class PrivacyPolicyPage extends BasePage {
 
+    @FindBy(xpath = "//a[text()='Politika privatnosti']")
+    WebElement PrivacyPolicy;
+
     public PrivacyPolicyPage(ChromeDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "//a[text()='Politika privatnosti']")
-    WebElement PrivatyPolicy;
-
-
     public void clickPrivacyPolicy() {
         System.out.println("ClickPrivacyPolicy");
-        PrivatyPolicy.click();
+        PrivacyPolicy.click();
     }
 
 }

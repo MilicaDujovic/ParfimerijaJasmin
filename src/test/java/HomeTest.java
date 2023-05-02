@@ -45,7 +45,7 @@ public class HomeTest extends BaseTest {
             System.out.println("2.Choose Muski parfemi from Menu option");
             homePage.clickOnMainMenuLink(Strings.MUSKI_PARFEMI);
             System.out.println("3. Verify that user is on Muski parfemi url");
-            assert isCurrentURLequalTo(driver, Strings.MUSKI_PARFEMI_URL) : "User is NOT on expected page. " +
+            assert isCurrentURLequalToExpectedUrl(driver, Strings.MUSKI_PARFEMI_URL) : "User is NOT on expected page. " +
                     "Expected: " + Strings.MUSKI_PARFEMI_URL + " . Actual: " + driver.getCurrentUrl();
 
         } finally {

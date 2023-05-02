@@ -22,8 +22,6 @@ public class BasePage {
     @FindBy(xpath = "//button[@class='amsearch-button -loupe -clear -icon']")
     WebElement searchButton;
 
-    @FindBy(xpath = "//section[@data-amsearch-js='results']")
-    WebElement searchSuggestionDropdown;
 
     public BasePage(ChromeDriver driver) {
         this.driver = driver;
@@ -31,16 +29,14 @@ public class BasePage {
     }
 
     public void waitForElement(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 8);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public BasePage enterTextAndSearchField(String text) {
+    public void enterTextAndSearchField(String text) {
         System.out.println("enterTextAndSearchField");
         searchField.click();
         searchField.sendKeys(text);
-        return this;
-
     }
 
     public void clickSearchButton() {
@@ -48,11 +44,10 @@ public class BasePage {
         searchButton.click();
     }
 
-
     public boolean isElementPresent(WebElement element) {
         try {
             boolean isPresent = element.isDisplayed();
-            return true;
+            return isPresent;
         } catch (Exception exc) {
             System.out.println(exc.getMessage());
             System.out.println("Element is not present on page");
@@ -61,38 +56,9 @@ public class BasePage {
     }
 
 
-    public SearchResultsPage SearchButton() {
-        assert searchButton.isDisplayed() : "Search icon is NOT present";
-        searchButton.click();
-        return new SearchResultsPage(driver);
-    }
-
-    public void selectDropdown(String text) {
-        waitForElement(searchSuggestionDropdown);
-        List<WebElement> listSuggestions = searchSuggestionDropdown.findElements(By.xpath("//a[@class='amsearch-link item-name']"));
-        for (WebElement suggestion : listSuggestions) {
-            String suggestionText = suggestion.getText();
-            if (suggestionText.equals(text)) {
-                hoverOverElement(suggestion);
-                suggestion.click();
-                break;
-            }
-        }
-
-    }
-
-
     public void hoverOverElement(WebElement element) {
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].mouseOver()", element);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
-
-    }
-
-    public void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
 }
