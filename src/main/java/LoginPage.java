@@ -4,7 +4,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    @FindBy(xpath = "//a[@id='idkcKKfCSP']")
+    @FindBy(xpath = "//a[@id='idkcKKfCSP']xx")
     WebElement register;
 
     @FindBy(xpath = "//input[@id='firstname']")
